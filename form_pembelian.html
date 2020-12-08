@@ -1,0 +1,142 @@
+<!--
+    Nama    : Muhammad Navis Abdillah
+    Kelas   : TI-2D
+    NIM     : 1941720147
+-->
+<html>
+<head>
+    <title>Form Pemesanan</title>
+    <link rel="stylesheet" type="text/css" href="style_foem.css" media="all" />
+    <script src="jquery-3.5.1.js"></script>
+</head>
+<body>
+    <div id="layout">
+		<div id="header">
+			<img src="images/alam.jpg" class="header">
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="http://localhost/UTS/Home.html">Beranda</a></li>
+				<li><a href="http://localhost/UTS/Toko.html">Menu</a></li>
+                <li><a href="http://localhost/UTS/form_pembelian.html">Pemesanan</a></li>
+                <li><a href="http://localhost/UTS/index.html">Profil</a></li>
+			</ul>
+		</div>
+        <div id="runningtext">
+            <marquee behavior="scroll" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();" direction="left">
+                Selamat Datang di Website STEAK ENAK
+            </marquee>
+        </div>
+		 <div class="content">
+            <header>
+                <div style="height: 30px;
+                            width: 500px;
+                            text-align: center;
+                            margin-top: 20px;
+                            margin-left: 250px">    
+                            <h2>Form Pemesanan</h2>
+            </header>
+
+                <table>
+                    <tr>
+                        <td><label for="id_pembeli" color= "white">ID Pembeli</label></td>
+                        <td><input type="text" id="id_pembeli" name="id_pembeli" required></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><p><label for="nama_pembeli">Nama Pembeli</label></td>
+                        <td><input type="text" id="nama_pembeli" name="nama_pembeli" required></td>
+                    </tr>
+
+                    <tr>
+                        <td><p><label for="status_pembeli">Status Pembeli </label></td>
+                        <td><input type="radio" id="status_pembeli" name="status_pembeli" value="Member" checked required>&nbsp;<label>Member</label></td>
+                        <td><input type="radio" id="status_pembeli" name="status_pembeli" value="Non Member" required>&nbsp;</td>
+                        <td><label>Non Member</label><br></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="nama_makanan">Makanan Yang Tersedia</label></td>
+                        <td>
+                            <select id="nama_makanan" name="nama_makanan">
+                                <option value="a">Steak Daging = Rp. 20.000</option>
+                                <option value="b">Steak Daging Ayam = Rp. 15.000</option>
+                                <option value="c">Steak Double Beef = Rp. 100.000</option>
+                                <option value="d">Steak Terlezat = Rp. 50.000</option>
+                               
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="jumlah">Jumlah</label></td>
+                        <td><input type="number" id="jumlah" name="jumlah" required></td>
+                    </tr>
+
+                    <tr>
+                        <td><button type="submit" id="submit" name="submit" class="button" onclick="form_process()">Submit</button></td>
+                        <td><div id="hasil_submit"></div></td>
+                    </tr>
+                </table>
+    
+                <script>
+                    var menu = ["a", "b", "c", "d"];
+    
+                    function form_process() {
+                        var harga_makanan = 0;
+                        var diskon = 0;
+                        var id_pembeli = document.getElementById('id_pembeli').value;
+                        var nama_pembeli = document.getElementById('nama_pembeli').value;
+                        var status_pembeli = document.querySelector('input[name = status_pembeli]:checked').value;
+                        var nama_makanan = document.getElementById('nama_makanan').value;
+                        var jumlah = document.getElementById('jumlah').value;
+    
+                        if(nama_makanan == "a") {
+                            harga_makanan = 20000;
+                        } 
+                        else if(nama_makanan == "b") {
+                            harga_makanan = 15000;
+                        } 
+                        else if(nama_makanan == "c") {
+                            harga_makanan = 100000;
+                        } 
+                        else if(nama_makanan == "d") {
+                            harga_makanan = 50000;
+                        } 
+    
+                        if (status_pembeli == 'member') {
+                            if(jumlah == 1) {
+                                diskon = harga_makanan * 0.05;
+                            } 
+                            else if(jumlah <= 3) {
+                                diskon = harga_makanan * 0.07;
+                            }
+                            else {
+                                diskon = harga_makanan * 0.1;
+                            }
+                        }
+                         else if (status_pembeli == 'non_member') {
+                            if(jumlah <= 3) {
+                                diskon = 0;
+                            } 
+                            else if(jumlah <= 5) {
+                                diskon = (harga_makanan * jumlah) * 0.05;
+                            } 
+                            else {
+                                diskon = harga_makanan * 0.05;
+                            }
+                        }
+    
+                        total = (harga_makanan * jumlah) - diskon;
+                        var par = document.createElement("h4")
+                        var node = document.createTextNode(
+                            "Total : " + total
+                            )
+                        par.appendChild(node)
+                        document.getElementById("hasil_submit").appendChild(par)
+                    }
+                </script>
+             <div id="footer"> &copy 09 November 2020, by Muhammad Navis Abdillah</div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,95 @@
+.wrap{
+	background: url('sidebar1.jpg');
+	width: 900px;
+	margin: 10px auto;
+}
+
+/*bagian header*/
+.wrap .header{
+	background: ('sidebar2.jpg');
+	/*height: 50px;*/
+	padding: 5px ;
+}
+
+/*akhir header*/
+
+/*bagian menu*/
+.wrap .menu{
+	background: url('sidebar2.jpg');
+}
+
+.wrap .menu ul{
+	padding: 0;
+	margin: 0;
+	background: lightblue;
+	overflow: hidden;
+}
+
+.wrap .menu ul li{
+	float: left;
+	list-style-type: none;
+	padding: 15px;
+}
+.badan{
+	height: 450px;
+}
+/*bagian sidebar*/
+.wrap .badan .sidebar{
+	background: url('sidebar1.jpg');
+	float: left;	
+	width: 25%;
+	height: 100%;
+}
+
+/*akhir sidebar*/
+
+.wrap .badan .content{
+	background: url('sidebar2.jpg');
+	float: left;
+	height: 100%;
+	width: 75%;	
+}
+
+.wrap .footer{
+	width: 100%;
+	padding: 10px;
+}
+.gambar{
+	background: #fff;
+	border: 1px;
+}
+.content{
+	font-size: 30px;
+	color: black;
+	letter-spacing: 1,5px;
+	text-align: center;
+}
+h1 {
+	text-align: center;
+	font-size: 30px;
+	color: black;
+	
+}
+p {
+	text-align: center;
+	color: black;
+}
+.link{
+	font-size: 15pt;
+}
+.link:hover{
+	color: red;
+}
+.link:link{
+	color: blue;
+}
+html {
+    background: url(Home.jpg)
+     no-repeat center center fixed;
+    background-size: cover;
+    
+}
+.linkA{
+	font-size: 20px;
+	color: black;
+}
